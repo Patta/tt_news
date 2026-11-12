@@ -751,7 +751,7 @@ class TtNews extends AbstractPlugin
         $where = '';
         $content = '';
         switch ($theCode) {
-            case 'LATEST' :
+            case 'LATEST':
                 $prefix_display = 'displayLatest';
                 $templateName = 'TEMPLATE_LATEST';
                 if (!$this->conf['displayArchivedInLatest']) {
@@ -761,17 +761,17 @@ class TtNews extends AbstractPlugin
                 $this->config['limit'] = $this->config['latestLimit'];
                 break;
 
-            case 'LIST' :
-            case 'LIST2' :
-            case 'LIST3' :
-            case 'HEADER_LIST' :
-            case 'RELATED' :
+            case 'LIST':
+            case 'LIST2':
+            case 'LIST3':
+            case 'HEADER_LIST':
+            case 'RELATED':
 
                 $prefix_display = 'displayList';
                 $templateName = 'TEMPLATE_' . strtoupper($theCode);
                 break;
 
-            case 'SEARCH' :
+            case 'SEARCH':
                 $prefix_display = 'displayList';
                 $templateName = 'TEMPLATE_LIST';
 
@@ -814,34 +814,34 @@ class TtNews extends AbstractPlugin
                 break;
 
                 // xml news export
-            case 'XML' :
+            case 'XML':
                 $prefix_display = 'displayXML';
                 // $this->arcExclusive = -1; // Only latest, non archive news
                 $this->allowCaching = $this->conf['displayXML.']['xmlCaching'] ?? null;
                 $this->config['limit'] = $this->conf['displayXML.']['xmlLimit'] ?? $this->config['limit'] ?? null;
 
                 switch ($this->conf['displayXML.']['xmlFormat']) {
-                    case 'rss091' :
+                    case 'rss091':
                         $templateName = 'TEMPLATE_RSS091';
                         $this->templateCode = $this->getFileResource($this->conf['displayXML.']['rss091_tmplFile']);
                         break;
 
-                    case 'rss2' :
+                    case 'rss2':
                         $templateName = 'TEMPLATE_RSS2';
                         $this->templateCode = $this->getFileResource($this->conf['displayXML.']['rss2_tmplFile'] ?? false);
                         break;
 
-                    case 'rdf' :
+                    case 'rdf':
                         $templateName = 'TEMPLATE_RDF';
                         $this->templateCode = $this->getFileResource($this->conf['displayXML.']['rdf_tmplFile']);
                         break;
 
-                    case 'atom03' :
+                    case 'atom03':
                         $templateName = 'TEMPLATE_ATOM03';
                         $this->templateCode = $this->getFileResource($this->conf['displayXML.']['atom03_tmplFile']);
                         break;
 
-                    case 'atom1' :
+                    case 'atom1':
                         $templateName = 'TEMPLATE_ATOM1';
                         $this->templateCode = $this->getFileResource($this->conf['displayXML.']['atom1_tmplFile']);
                         break;
@@ -1591,10 +1591,10 @@ class TtNews extends AbstractPlugin
             $theDate = 0;
             while ($theDate < $row['maxval']) {
                 switch ($arcMode) {
-                    case 'month' :
+                    case 'month':
                         $theDate = mktime(0, 0, 0, date('m', $row['minval']) + $c, 1, date('Y', $row['minval']));
                         break;
-                    case 'quarter' :
+                    case 'quarter':
                         $theDate = mktime(
                             0,
                             0,
@@ -1604,7 +1604,7 @@ class TtNews extends AbstractPlugin
                             date('Y', $row['minval'])
                         );
                         break;
-                    case 'year' :
+                    case 'year':
                         $theDate = mktime(0, 0, 0, 1, 1, date('Y', $row['minval']) + $c);
                         break;
                     default:
@@ -2765,13 +2765,13 @@ class TtNews extends AbstractPlugin
                 if (!empty($lConf['image.']['file.']['maxW']) && is_numeric(substr((string)$lConf['image.']['file.']['maxW'], -1)) && $imageMode) {
                     // 'm' or 'c' not set by TS
                     switch ($imageMode) {
-                        case 'resize2max' :
+                        case 'resize2max':
                             $suf = 'm';
                             break;
-                        case 'crop' :
+                        case 'crop':
                             $suf = 'c';
                             break;
-                        case 'resize' :
+                        case 'resize':
                             $suf = '';
                             break;
                         default:
