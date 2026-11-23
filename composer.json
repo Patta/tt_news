@@ -33,8 +33,7 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "tt_news",
-            "web-dir": ".Build/public"
+            "extension-key": "tt_news"
         }
     },
     "require-dev": {
@@ -59,8 +58,6 @@
         "typo3/cms-workspaces": "^14.3"
     },
     "config": {
-        "vendor-dir": ".Build/vendor",
-        "bin-dir": ".Build/bin",
         "allow-plugins": {
             "typo3/cms-composer-installers": true,
             "typo3/class-alias-loader": true
@@ -72,9 +69,9 @@
             "typo3 extension:setup",
             "typo3 cache:flush"
         ],
-        "phpcsfixer": ".Build/bin/php-cs-fixer fix --config=Build/php-cs-fixer.php",
+        "phpcsfixer": "vendor/bin/php-cs-fixer fix --config=Build/php-cs-fixer.php",
         "rector": [
-            ".Build/bin/rector process --config Build/rector.php",
+            "vendor/bin/rector process --config Build/rector.php",
             "@phpcsfixer"
         ]
     }

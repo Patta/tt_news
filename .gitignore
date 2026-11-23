@@ -1,7 +1,8 @@
-/.Build/
 /.ddev/*
 !/.ddev/config.yaml
 /.php-cs-fixer.cache
 /composer.lock
 /config
+/public
 /var
+/vendor
